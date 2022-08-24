@@ -1,0 +1,26 @@
+/*
+ * Empty Stylesheet file.
+ */
+/*
+*/.mainFxmlClass {
+    -fx-background-image: url("portada1.jpg");
+    -fx-background-size:cover;
+    -fx-background-repeat: no-repeat;
+    
+}
+.mainFxmlClassD{
+    -fx-background-image: url("portada22.png");
+    -fx-background-size:cover;
+    -fx-background-repeat: no-repeat;
+}
+.mainFxmlClassA{
+    -fx-background-image: url("portada1.jpg");
+    -fx-background-size:cover;
+    -fx-background-repeat: no-repeat;
+}
+.mainFxmlClassC{
+    -fx-background-image: url("PORTADAGANADOR.jpg");
+    -fx-background-size:cover;
+    -fx-background-repeat: no-repeat;
+}
+
