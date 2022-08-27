@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package controladores;
 
 import java.io.File;
 import java.io.FileInputStream;
