@@ -168,7 +168,7 @@ public class CuarternaryController implements Initializable {
     }
     public void premio(){
         
-        final String NOMBRE_ARCHIVO = "src\\main\\java\\com\\mycompany\\mavenproject1\\Ganador.mp3";
+        final String NOMBRE_ARCHIVO = "src\\main\\resources\\com\\mycompany\\mavenproject1\\Ganador.mp3";
         File archivo = null;
         try {
             archivo = new File(NOMBRE_ARCHIVO);

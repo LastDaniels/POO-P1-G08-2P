@@ -176,7 +176,7 @@ public class SecondaryController implements Initializable {
     }
     public void segundo(){
         
-        final String NOMBRE_ARCHIVO = "src\\main\\java\\com\\mycompany\\mavenproject1\\entrada.mp3";
+        final String NOMBRE_ARCHIVO = "src\\main\\resources\\com\\mycompany\\mavenproject1\\entrada.mp3";
         File archivo = null;
         try {
             archivo = new File(NOMBRE_ARCHIVO);

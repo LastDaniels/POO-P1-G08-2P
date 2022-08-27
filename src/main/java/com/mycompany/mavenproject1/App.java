@@ -42,7 +42,7 @@ public class App extends Application {
         //###SE ESTABLECIO ICONO DE VENTANA
         FileInputStream input = null;
         try {
-            input = new FileInputStream("src/main/java/com/mycompany/mavenproject1/ICONOventana.png");
+            input = new FileInputStream("src/main/resources/com/mycompany/mavenproject1/ICONOventana.png");
         } catch (FileNotFoundException e) {
             System.out.println("No se encontro la imagen "+e);
         }
@@ -64,7 +64,7 @@ public class App extends Application {
 
     public static void main(String[] args) {
         
-        final String NOMBRE_ARCHIVO = "src\\main\\java\\com\\mycompany\\mavenproject1\\entrada.mp3";
+        final String NOMBRE_ARCHIVO = "src\\main\\resources\\com\\mycompany\\mavenproject1\\entrada.mp3";
         File archivo = null;
         try {
             archivo = new File(NOMBRE_ARCHIVO);
