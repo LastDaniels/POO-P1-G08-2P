@@ -58,16 +58,16 @@ public class PrimaryController implements Initializable{
         
         boton.setOnMouseClicked(e -> {
             //##PROBLEMAS PARA SEGUIR
+            String nickname = nombre.getText();
             Pattern pattern = Pattern.compile("[A-Za-z]+");
-            Matcher mather = pattern.matcher(String.valueOf(nombre));
+            Matcher mather = pattern.matcher(nickname);
             if ((nombre.getText()).isEmpty()){
                 formato.setText("INGRESA TU NOMBRE");
             }
             else if(!mather.find()){
                 formato.setText("INGRESA UN NOMBRE VALIDO SIN ESPACIO");
             }else{
-                App.nombreJugador = nombre.getText();
-                
+                App.nombreJugador = nickname.toUpperCase();
                 try {
                 App.setRoot("ternary");
             } catch (IOException ex) {

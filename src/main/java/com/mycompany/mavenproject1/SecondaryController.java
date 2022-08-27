@@ -1,5 +1,7 @@
 package com.mycompany.mavenproject1;
 
+import java.io.File;
+import modelo.Indices;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,13 +20,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class SecondaryController implements Initializable {
     
     
     
-    public static ArrayList<String> LISTA = (ArrayList<String>) numeros(App.numeroElementos);
+    public static ArrayList<String> LISTA;
     
 
     @FXML
@@ -36,6 +39,7 @@ public class SecondaryController implements Initializable {
     
     Button btnProd = new Button();
     Button btnProd1 = new Button();
+    Button btnProd2 = new Button();
 
     int numero = 0;
     
@@ -47,6 +51,8 @@ public class SecondaryController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        SecondaryController.LISTA = (ArrayList<String>) numeros(App.numeroElementos);
+        segundo();
         tablaBingo();
         try {
             portadaGanadora();
@@ -83,7 +89,9 @@ public class SecondaryController implements Initializable {
             if (boton.getText().equals(LISTA.get(numero))){
                     boton.setStyle("-fx-background-image: url('https://i.pinimg.com/736x/5f/4b/21/5f4b21c376bf85db113dbf1b0c083d16.jpg'); -fx-background-size:cover;");
                     App.correctas++;
+                    App.tiempo++;
                     btnProd.setText("Correctas: "+String.valueOf(App.correctas));
+                    btnProd2.setText(" Tiempo: 00:00:"+String.valueOf(App.tiempo));
                     
             //boton.setStyle("-fx-background-color:blue; -fx-text-fill:white;");
             if (numero < LISTA.size()-1){
@@ -102,12 +110,16 @@ public class SecondaryController implements Initializable {
         else{
             System.out.println("INTENTO FALLIDO");
             App.incorrectas++;
+            App.tiempo++;
             btnProd1.setText("Incorrectas: "+String.valueOf(App.incorrectas));
+            btnProd2.setText(" Tiempo: 00:00:"+String.valueOf(App.tiempo));
         }
             });
             //-----------------------------------------
             }
         cajaHBox.getChildren().add(tabla);
+        
+        
         
     }
     
@@ -129,9 +141,9 @@ public class SecondaryController implements Initializable {
     }
     public void portadaIcono(){
         
-        Button btnProd2 = new Button(" Tiempo: 00:06:01");
+        btnProd2.setText(" Tiempo: 00:00:00");
         try{
-            FileInputStream  input = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\ICONORELOJ.jpg");
+            FileInputStream  input = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\ICONORELOJ.png");
             Image img = new Image(input,50,50,false,false);
             ImageView imageView = new ImageView(img);
             btnProd2.setGraphic(imageView);
@@ -141,7 +153,7 @@ public class SecondaryController implements Initializable {
 
         btnProd.setText(" Correcto: 0");
         try{
-            FileInputStream  input = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\VISTOBUENO.jpg");
+            FileInputStream  input = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\VISTOMALO.png");
             Image img = new Image(input,50,50,false,false);
             ImageView imageView = new ImageView(img);
             btnProd.setGraphic(imageView);
@@ -151,7 +163,7 @@ public class SecondaryController implements Initializable {
         
         btnProd1.setText(" Incorrecto: 0");
         try{
-            FileInputStream  input = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\VISTOMALO.jpg");
+            FileInputStream  input = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\VISTOBUENO.png");
             Image img = new Image(input,50,50,false,false);
             ImageView imageView = new ImageView(img);
             btnProd1.setGraphic(imageView);
@@ -162,6 +174,22 @@ public class SecondaryController implements Initializable {
         cajaHBox.setAlignment(Pos.CENTER);
 
     }
-    
+    public void segundo(){
+        
+        final String NOMBRE_ARCHIVO = "src\\main\\java\\com\\mycompany\\mavenproject1\\entrada.mp3";
+        File archivo = null;
+        try {
+            archivo = new File(NOMBRE_ARCHIVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        Media audio = new Media(archivo.toURI().toString());
+        
+        MediaPlayer reproductor = new MediaPlayer(audio);
+        
+        reproductor.play();
+
+    }
     
 }

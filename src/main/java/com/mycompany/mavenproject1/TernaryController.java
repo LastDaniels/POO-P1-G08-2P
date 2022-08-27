@@ -38,7 +38,6 @@ public class TernaryController implements Initializable {
         try {
             eligirNivel();
         } catch (FileNotFoundException ex) {
-            System.out.println("QUE PASAAAAAAAAAAAAAAAAAAA");
             ex.printStackTrace();
         }
         
@@ -52,13 +51,13 @@ public class TernaryController implements Initializable {
         
         HBox root = new HBox();
         //##NIVEL 1
-        FileInputStream inputUNO = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\DINOSAURIO.jpg");
+        FileInputStream inputUNO = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\DINOSAURIO.png");
         Image imgUNO = new Image(inputUNO,200,300, false, false);
         ImageView imagenUNO = new ImageView(imgUNO);
         Label unoNivel = new Label("NIVEL 1");
         unoNivel.setStyle("-fx-font-size: 14px; -fx-font-family: Arial Narrow; -fx-font-weight: bold;");
         Button unoBoton = new Button("PRINCIPIANTE");
-        unoBoton.setStyle("-fx-background-color:red; -fx-text-fill:white; -fx-font-size: 30px; ");
+        unoBoton.setStyle("-fx-background-color:green; -fx-text-fill:white; -fx-font-size: 30px; ");
         VBox nivelUNO = new VBox(imagenUNO,unoNivel,unoBoton);
         nivelUNO.setAlignment(Pos.CENTER);
         nivelUNO.setSpacing(15);
@@ -77,13 +76,13 @@ public class TernaryController implements Initializable {
         
         //##NIVEL 2
 
-        FileInputStream inputDOS = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\PORTADAINTERMEDIO.jpg");
+        FileInputStream inputDOS = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\PORTADAINTERMEDIO.png");
         Image imgDOS = new Image(inputDOS,200,300, false, false);
         ImageView imagenDOS = new ImageView(imgDOS);
         Label dosNivel = new Label("NIVEL 2");
         dosNivel.setStyle("-fx-font-size: 14px; -fx-font-family: Arial Narrow; -fx-font-weight: bold;");
         Button dosBoton = new Button("INTERMEDIO");
-        dosBoton.setStyle("-fx-background-color:red; -fx-text-fill:white; -fx-font-size: 30px;");
+        dosBoton.setStyle("-fx-background-color:green; -fx-text-fill:white; -fx-font-size: 30px;");
         VBox nivelDOS = new VBox(imagenDOS,dosNivel,dosBoton);
         nivelDOS.setAlignment(Pos.CENTER);
         nivelDOS.setSpacing(15);
@@ -104,13 +103,13 @@ public class TernaryController implements Initializable {
         
         //##NIVEL 3
 
-        FileInputStream  inputTRES = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\PORTADAAVANZADO.jpg");
+        FileInputStream  inputTRES = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\PORTADAAVANZADO.png");
         Image imgTRES = new Image(inputTRES,200,300, false, false);
         ImageView imagenTRES = new ImageView(imgTRES);
         Label tresNivel = new Label("NIVEL 3");
         tresNivel.setStyle("-fx-font-size: 14px; -fx-font-family: Arial Narrow; -fx-font-weight: bold;");
         Button tresBoton = new Button("AVANZADO");
-        tresBoton.setStyle("-fx-background-color:red; -fx-text-fill:white; -fx-font-size: 30px;");
+        tresBoton.setStyle("-fx-background-color:green; -fx-text-fill:white; -fx-font-size: 30px;");
         VBox nivelTRES = new VBox(imagenTRES,tresNivel,tresBoton);
         nivelTRES.setAlignment(Pos.CENTER);
         nivelTRES.setSpacing(15);

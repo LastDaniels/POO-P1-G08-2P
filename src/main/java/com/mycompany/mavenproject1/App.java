@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,21 +13,24 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import modelo.Jugador;
 
 
 
 public class App extends Application {
     
+    public static ArrayList<Jugador> jugadores = new ArrayList<>();
+    //##NOMBRE DEL JUGADOR 
     public static String nombreJugador;
-    
+    //##CANTIDAD DE ELEMENTO EN CADA NIVEL DEL BINGO
     public static int numeroElementos;
     public static int numeroColumna;
     public static int numeroFila;
-    
     //##RESULTADO FINAL
     public static int correctas;
     public static int incorrectas;
     public static int tiempo;
+    
 
     private static Scene scene;
 
@@ -60,7 +64,7 @@ public class App extends Application {
 
     public static void main(String[] args) {
         
-        final String NOMBRE_ARCHIVO = "src\\main\\java\\com\\mycompany\\mavenproject1\\Dinosaur.mp3";
+        final String NOMBRE_ARCHIVO = "src\\main\\java\\com\\mycompany\\mavenproject1\\entrada.mp3";
         File archivo = null;
         try {
             archivo = new File(NOMBRE_ARCHIVO);
@@ -76,10 +80,6 @@ public class App extends Application {
 
         
         launch();
-        
-        
-        System.out.println(correctas+ " "+ incorrectas);
-        System.out.println(nombreJugador);
     }
 
 }
