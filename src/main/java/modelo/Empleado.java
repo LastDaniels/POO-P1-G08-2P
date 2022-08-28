@@ -8,6 +8,12 @@ package modelo;
  *
  * @author LENOVO
  */
-public class Empleado {
+public class Empleado extends Persona{
+    private String estado;
     
+
+    public Empleado(String cedula, String nombre, String telefono, String email, String estado) {
+        super(cedula, nombre, telefono, email);
+        this.estado = estado;
+    }
 }
