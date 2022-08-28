@@ -36,7 +36,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 1110, 640);
+        scene = new Scene(loadFXML("MENU"), 1110, 640);
         stage.setScene(scene);
         stage.setTitle("JUGUEMOS BINGO");
         //###SE ESTABLECIO ICONO DE VENTANA

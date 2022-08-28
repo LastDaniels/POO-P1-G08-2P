@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1110.0" spacing="10.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.ATENCIONESController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label styleClass="mainFxmlClassTITULOS" stylesheets="@style.css" text="Atenciones" />
+         </children>
+      </HBox>
+      <HBox prefHeight="197.0" prefWidth="906.0">
+         <children>
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Cédula de Empleado:">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="empleadoTextField" prefHeight="26.0" prefWidth="200.0" />
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Cédula de Cliente:">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="clienteTextField" prefWidth="200.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Fecha:">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="fechaDatePicker">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </DatePicker>
+            <Button fx:id="buscarButton" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Buscar">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="atencionesTableView" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="fechaColumn" prefWidth="200.0" text="Fecha" />
+          <TableColumn fx:id="clienteColumn" prefWidth="200.0" text="Cliente" />
+            <TableColumn fx:id="tiempoColumn" prefWidth="200.0" text="Duración Real" />
+            <TableColumn fx:id="terapistaColumn" prefWidth="200.0" text="Terapista" />
+        </columns>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>
