@@ -1,2 +1,3 @@
-cedula, nombre, telefono, correo, email, estado
-0984889352, Daniel Picon, 098594177, dp@gmail.com, activo
+cedula, nombre, telefono, correo, email
+0984889352, edi, edi, edi, activo
+0984594166, Carlos Quimi, 0847156587, cq@gmail.com, Activo

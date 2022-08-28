@@ -37,7 +37,7 @@ public class NewEmpleadoController {
     private void editarEmpleado(){
         ArrayList<Empleado> empleados = Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt");
         for(int i =0 ; i<empleados.size();i++){
-            if(txCed.getText().equals(empleados.get(i).getNombre())){
+            if(txCed.getText().equals(empleados.get(i).getCedula())){
                 empleados.get(i).setNombre(txNombre.getText());
                 empleados.get(i).setTelefono(txTelf.getText());
                 empleados.get(i).setEmail(txEmail.getText());
