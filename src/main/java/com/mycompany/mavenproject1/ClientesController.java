@@ -6,21 +6,20 @@ package com.mycompany.mavenproject1;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import modelo.Cliente;
 
 /**
  * FXML Controller class
  *
- * @author Carlos Saikotek
+ * @author Carlos 
  */
-public class ClientesController implements Initializable {
+public class ClientesController {
 
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
 }
