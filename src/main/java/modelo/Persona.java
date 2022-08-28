@@ -50,14 +50,20 @@ public class Persona {
         this.cedula = cedula;
         this.nombre = nombre;
         this.telefono = telefono;
-        this.email = email;    
+        this.email = email;  
+    
     }
     //#########################################################################
-    //NO TIENE toString()
+    //SOLO EL NOMBRE PARA EL EMPLEADO
+
+    public Persona(String nombre) {
+        this.nombre = nombre;
+    }
 
     @Override
     public String toString() {
         return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email;
     }
+    
     
 }

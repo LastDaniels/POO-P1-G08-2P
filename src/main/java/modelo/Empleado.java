@@ -17,11 +17,17 @@ import java.util.ArrayList;
 public class Empleado extends Persona{
     private String estado;
     
+    
 
     public Empleado(String cedula, String nombre, String telefono, String email, String estado) {
         super(cedula, nombre, telefono, email);
         this.estado = estado;
     }
+
+    public Empleado(String nombre) {
+        super(nombre);
+    }
+    
     
     public String getCedula(){
         return super.getCedula();   
@@ -50,6 +56,7 @@ public class Empleado extends Persona{
     public String toString() {
         return super.toString() + ", Empleado{" + "estado=" + estado + '}'+"}";
     }
+    
 //    @Override
 //    public String toString() {
 //        return  super.getCedula()+super.getNombre()+super.getTelefono()+super.getEmail()+ estado;
