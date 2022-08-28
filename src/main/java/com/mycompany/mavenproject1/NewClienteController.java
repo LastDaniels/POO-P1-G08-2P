@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import modelo.Cliente;
+import modelo.Representante;
 
 /**
  * FXML Controller class
@@ -48,15 +49,75 @@ public class NewClienteController  {
 
 @FXML
     private void editarCliente()throws Exception{
-        boolean flag = false;
+        boolean flag1 = false;
+        boolean flag2 = false;
+        
         ArrayList<Cliente> clientes = Cliente.cargarClientes("src/main/resources/TXT/clientes.txt");
+        ArrayList<Representante> representantes = Representante.cargarRepresentantes("src/main/resources/TXT/representantes.txt");
+        
         for(int i =0 ; i<clientes.size();i++){
+            
             if(txtCedulaCl.getText().equals(clientes.get(i).getCedula())){
                 clientes.get(i).setNombre(txtNombreCl.getText());
                 clientes.get(i).setTelefono(txtPhoneCl.getText());
                 clientes.get(i).setEmail(txtEmailCl.getText());
+                //clientes.get(i).getCedulaRepresentante();
+                
+                
+                for(int j =0 ; j<representantes.size();j++){
+                    
+                    if(txtCedulaRep.getText().equals(representantes.get(j).getCedula())){
+                        representantes.get(j).setNombre(txtNombreRep.getText());
+                        representantes.get(j).setTelefono(txtPhoneRep.getText());
+                        representantes.get(j).setEmail(txtEmailRep.getText());
+                        j=clientes.size();
+                        flag2 = true; 
+                        
+                    }else if (j == representantes.size() - 1) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Information Dialog");
+                            alert.setHeaderText("Resultado de la operación");
+                            alert.setContentText("Representante no encontrado");
+
+                            alert.showAndWait();
+                            //App.setRoot("editarCliente");
+                    }
+                }
+                
+                if (flag2==true){
+                    
+                        try {
+                            FileWriter writer1 = new FileWriter(new File("src/main/resources/TXT/representantes.txt"));
+                            BufferedWriter bw1 = new BufferedWriter(writer1);
+                            bw1.write("cedula, nombre, telefono, correo");
+                            bw1.newLine();
+                            
+                            for(int z=0; z<representantes.size();z++){
+                                bw1.write(representantes.get(z).getCedula()+", "+
+                                representantes.get(z).getNombre()+", "+
+                                representantes.get(z).getTelefono()+", "+
+                                representantes.get(z).getEmail());
+                                bw1.newLine();
+                            }
+                            
+                            bw1.close();
+                            System.out.println(representantes.toString());
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Information Dialog");
+                            alert.setHeaderText("Resultado de la operación");
+                            alert.setContentText("Representante Editado Exitosamente");
+
+                            alert.showAndWait();
+                            //App.setRoot("clientes");
+                            
+                        } catch (IOException ioe) {
+                            ioe.printStackTrace();
+                        }
+                }
                 i=clientes.size();
-            flag = true;}else if (i == clientes.size() - 1) {
+                flag1 = true;
+                
+            }else if (i == clientes.size() - 1) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Information Dialog");
                     alert.setHeaderText("Resultado de la operación");
@@ -65,22 +126,23 @@ public class NewClienteController  {
                     alert.showAndWait();
                     App.setRoot("editarCliente");
                     
-             }}
-        if (flag==true){
+            }
+        }
+        if (flag1==true){
                 try {
-                    FileWriter writer = new FileWriter(new File("src/main/resources/TXT/clientes.txt"));
-                    BufferedWriter bw = new BufferedWriter(writer);
-                    bw.write("cedula, nombre, telefono, correo, cedulaRepresentante");
-                    bw.newLine();
+                    FileWriter writer2 = new FileWriter(new File("src/main/resources/TXT/clientes.txt"));
+                    BufferedWriter bw2 = new BufferedWriter(writer2);
+                    bw2.write("cedula, nombre, telefono, correo, cedulaRepresentante");
+                    bw2.newLine();
                     for(int x=0; x<clientes.size();x++){
-                        bw.write(clientes.get(x).getCedula()+", "+
+                        bw2.write(clientes.get(x).getCedula()+", "+
                         clientes.get(x).getNombre()+", "+
                         clientes.get(x).getTelefono()+", "+
                         clientes.get(x).getEmail()+", "+
                         clientes.get(x).getCedulaRepresentante());
-                        bw.newLine();
+                        bw2.newLine();
                     }
-                    bw.close();
+                    bw2.close();
                     System.out.println(clientes.toString());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
@@ -101,7 +163,8 @@ public class NewClienteController  {
     
     @FXML
     private void guardarCliente() {
-        ArrayList<Cliente> clientes = Cliente.cargarClientes("src/main/resources/TXT/clientes.txt");//cargar la lista del archivo
+        ArrayList<Cliente> clientes = Cliente.cargarClientes("src/main/resources/TXT/clientes.txt");
+        ArrayList<Representante> representantes = Representante.cargarRepresentantes("src/main/resources/TXT/representantes.txt");
         System.out.println("Guardando cliente");
         
         Cliente cl = new Cliente(txtCedulaCl.getText(), 
@@ -110,20 +173,37 @@ public class NewClienteController  {
                                   txtEmailCl.getText(),
                                   txtCedulaRep.getText());
         clientes.add(cl);
+        Representante r = new Representante(txtCedulaRep.getText(), 
+                                  txtNombreRep.getText(), 
+                                  txtPhoneRep.getText(),
+                                  txtEmailRep.getText());
+        representantes.add(r);
+        
         System.out.println("Nuevo Cliente:" + cl);
         
-        //serializar la lista
+        
         try {
-        FileWriter writer = new FileWriter("src/main/resources/TXT/empleados.txt", true);
-        BufferedWriter bw = new BufferedWriter(writer);
-        bw.write(cl.getCedula()+", "+
+        FileWriter writer1 = new FileWriter("src/main/resources/TXT/clientes.txt", true);
+        BufferedWriter bw1 = new BufferedWriter(writer1);
+        bw1.write(cl.getCedula()+", "+
                  cl.getNombre()+", "+
                  cl.getTelefono()+", "+
                  cl.getEmail()+", "+
                  cl.getCedulaRepresentante());
-        bw.newLine();
+        bw1.newLine();
         
-        bw.close();
+        bw1.close();
+        
+        FileWriter writer2 = new FileWriter("src/main/resources/TXT/representantes.txt", true);
+        BufferedWriter bw2 = new BufferedWriter(writer2);
+        bw2.write(r.getCedula()+", "+
+                 r.getNombre()+", "+
+                 r.getTelefono()+", "+
+                 r.getEmail());
+        
+        bw2.newLine();
+        
+        bw2.close();
 
             //mostrar informacion
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
