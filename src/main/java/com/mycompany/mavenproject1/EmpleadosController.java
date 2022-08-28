@@ -5,15 +5,14 @@
 package com.mycompany.mavenproject1;
 
 import java.io.IOException;
-import java.io.InputStream;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
 import modelo.Empleado;
-import modelo.Persona;
 /**
  * FXML Controller class
  *
@@ -61,18 +60,35 @@ public class EmpleadosController  {
         tvEmpleados.getItems().setAll(Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt"));
     }
     
-    @FXML
-    private void mostrarDetalle() {
-        Empleado e = (Empleado) tvEmpleados.getSelectionModel().getSelectedItem();
-        //se puede recuperar el indice del elemento recuperado con getSelectedIndex
-        System.out.println(tvEmpleados.getSelectionModel().getSelectedIndex());
-        System.out.println(e);
 
+    
+    @FXML
+    private void editarEmpleado() throws IOException {
         
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("editEmpleado.fxml"));//no tiene el controlador especificado
+        NewEmpleadoController ct = new NewEmpleadoController();
+
+        fxmlLoader.setController(ct);//se asigna el controlador
+
+        App.setRoot("editEmpleado");
+
+    
         
     }
     @FXML
-    public void agregarEmpleado() throws Exception{
-        
+    public void nuevoEmpleado() throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("aggEmpleado.fxml"));//no tiene el controlador especificado
+        NewEmpleadoController ct = new NewEmpleadoController();
+
+        fxmlLoader.setController(ct);//se asigna el controlador
+
+        App.setRoot("aggEmpleado");
+
+
+    }
+    
+    @FXML
+    public void cancelar() throws Exception{
+        App.setRoot("empleados");
     }
 }

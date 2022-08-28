@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.NewEmpleadoController">
    <children>
       <Label layoutX="209.0" layoutY="35.0" styleClass="mainFxmlClassTITULOS" stylesheets="@style.css" text="Nuevo Empleado">
          <font>
@@ -38,7 +38,7 @@
             <TextField fx:id="txEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <Button layoutX="212.0" layoutY="342.0" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Guardar" />
+      <Button layoutX="212.0" layoutY="342.0" mnemonicParsing="false" onAction="#guardarEmpleado" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Guardar" />
       <Button layoutX="339.0" layoutY="342.0" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Cancelar" />
    </children>
 </AnchorPane>

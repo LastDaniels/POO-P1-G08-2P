@@ -24,12 +24,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="agregarClienteButton" alignment="CENTER" layoutX="133.0" layoutY="312.0" mnemonicParsing="false" text="Agregar Empleado">
+      <Button alignment="CENTER" layoutX="133.0" layoutY="312.0" mnemonicParsing="false" onAction="#nuevoEmpleado" text="Agregar Empleado">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="editarClienteButton" alignment="CENTER" layoutX="258.0" layoutY="312.0" mnemonicParsing="false" text="Editar Empleado">
+      <Button fx:id="editarClienteButton" alignment="CENTER" layoutX="258.0" layoutY="312.0" mnemonicParsing="false" onAction="#editarEmpleado" text="Editar Empleado">
          <font>
             <Font size="10.0" />
          </font>
