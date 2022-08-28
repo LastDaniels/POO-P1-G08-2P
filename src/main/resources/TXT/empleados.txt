@@ -1,0 +1,2 @@
+cedula, nombre, telefono, correo, email, estado
+0984889352, Daniel Picon, 098594177, dp@gmail.com, activo

@@ -5,6 +5,7 @@
 package com.mycompany.mavenproject1;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,22 +36,27 @@ public class NewEmpleadoController {
     @FXML
     private void editarEmpleado(){
         ArrayList<Empleado> empleados = Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt");
-        for(Empleado e: empleados){
-            if (e.getCedula().equals(txCed.getText())){
-                e.setNombre(txNombre.getText());
-                e.setTelefono(txTelf.getText());
-                e.setEmail(txEmail.getText());
+        for(int i =0 ; i<empleados.size();i++){
+            if(txCed.getText().equals(empleados.get(i).getNombre())){
+                empleados.get(i).setNombre(txNombre.getText());
+                empleados.get(i).setTelefono(txTelf.getText());
+                empleados.get(i).setEmail(txEmail.getText());
+                i=empleados.size();}}
                 try {
-                    FileWriter writer = new FileWriter("src/main/resources/TXT/empleados.txt");
+                    FileWriter writer = new FileWriter(new File("src/main/resources/TXT/empleados.txt"));
                     BufferedWriter bw = new BufferedWriter(writer);
-                    for(int i=0; i<empleados.size();i++){
-                        bw.write(empleados.get(i).getCedula()+", "+
-                        empleados.get(i).getNombre()+", "+
-                        empleados.get(i).getTelefono()+", "+
-                        empleados.get(i).getEmail()+", "+
-                        empleados.get(i).getEstado());
+                    bw.write("cedula, nombre, telefono, correo, email");
+                    bw.newLine();
+                    for(int x=0; x<empleados.size();x++){
+                        bw.write(empleados.get(x).getCedula()+", "+
+                        empleados.get(x).getNombre()+", "+
+                        empleados.get(x).getTelefono()+", "+
+                        empleados.get(x).getEmail()+", "+
+                        empleados.get(x).getEstado());
                         bw.newLine();
                     }
+                    bw.close();
+                    System.out.println(empleados.toString());
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Information Dialog");
                     alert.setHeaderText("Resultado de la operación");
@@ -62,8 +68,8 @@ public class NewEmpleadoController {
                     ioe.printStackTrace();
                 }
             }
-        }
-    }
+        
+    
     
     
     @FXML
