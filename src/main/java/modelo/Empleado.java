@@ -45,12 +45,15 @@ public class Empleado extends Persona{
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
-    
+
     @Override
     public String toString() {
-        return  super.getCedula()+super.getNombre()+super.getTelefono()+super.getEmail()+ estado;
+        return super.toString() + ", Empleado{" + "estado=" + estado + '}'+"}";
     }
+//    @Override
+//    public String toString() {
+//        return  super.getCedula()+super.getNombre()+super.getTelefono()+super.getEmail()+ estado;
+//    }
     
     public static ArrayList<Empleado> cargarEmpleados(String ruta){
         ArrayList<Empleado> empleados = new ArrayList<>();
@@ -60,7 +63,7 @@ public class Empleado extends Persona{
             
             br.readLine();
             while((sCurrentLine = br.readLine())!=null){
-                String[] datos = sCurrentLine.split(", ");
+                String[] datos = sCurrentLine.split(",");
                 Empleado e = new Empleado(datos[0], datos[1], datos[2], datos[3], datos[4]);
                 empleados.add(e);
             }
@@ -69,9 +72,7 @@ public class Empleado extends Persona{
         } catch (IOException   ex) {
             System.out.println("Error io:"+ex.getMessage());
         } 
-        System.out.println(empleados.toString());
-        
-        
+        //System.out.println(empleados.toString());
         return empleados;
     }
 }

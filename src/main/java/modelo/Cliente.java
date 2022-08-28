@@ -37,6 +37,11 @@ public class Cliente extends Persona implements Comparable<Cliente>{
     public int compareTo(Cliente cl) {
         return getNombre().compareTo(cl.getNombre());
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +", Cliente{" + "cedulaRepresentante=" + cedulaRepresentante + '}'+"}";
+    }
     
     public static ArrayList<Cliente> cargarClientes(String ruta){
         ArrayList<Cliente> clientes = new ArrayList<>();
@@ -46,7 +51,7 @@ public class Cliente extends Persona implements Comparable<Cliente>{
             
             br.readLine();
             while((sCurrentLine = br.readLine())!=null){
-                String[] datos = sCurrentLine.split(", ");
+                String[] datos = sCurrentLine.split(",");
                 Cliente cl = new Cliente(datos[0], datos[1], datos[2], datos[3], datos[4]);
                 clientes.add(cl);
             }

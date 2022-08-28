@@ -13,8 +13,10 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import modelo.Cliente;
 import modelo.Empleado;
 import modelo.Jugador;
+import modelo.Representante;
 
 
 
@@ -82,7 +84,10 @@ public class App extends Application {
         
         launch();
         
-        Empleado.cargarEmpleados("src\\main\\resources\\TXT\\empleados.txt");
+//        System.out.println(Empleado.cargarEmpleados("src\\main\\resources\\TXT\\empleados.txt"));
+        //System.out.println(Cliente.cargarClientes("src\\main\\resources\\TXT\\clientes.txt"));
+        //System.out.println(Representante.cargarRepresentantes("src\\main\\resources\\TXT\\clientes.txt"));
+        
     }
-
+    
 }

@@ -45,13 +45,19 @@ public class Persona {
     public void setEmail(String email){
         this.email = email;
     }
-    
-    //constructor Persona
+
     public Persona(String cedula, String nombre, String telefono, String email){
         this.cedula = cedula;
         this.nombre = nombre;
         this.telefono = telefono;
         this.email = email;    
     }
-}//end Persona
+    //#########################################################################
+    //NO TIENE toString()
 
+    @Override
+    public String toString() {
+        return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email;
+    }
+    
+}

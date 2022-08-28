@@ -25,6 +25,12 @@ public class Representante extends Persona implements Comparable<Representante>{
     public int compareTo(Representante r) {
         return getNombre().compareTo(r.getNombre());
     }
+
+    @Override
+    public String toString() {
+        return super.toString()+"}";
+    }
+    
     
     public static ArrayList<Representante> cargarRepresentantes(String ruta){
         ArrayList<Representante> representantes = new ArrayList<>();
@@ -34,7 +40,7 @@ public class Representante extends Persona implements Comparable<Representante>{
             
             br.readLine();
             while((sCurrentLine = br.readLine())!=null){
-                String[] datos = sCurrentLine.split(", ");
+                String[] datos = sCurrentLine.split(",");
                 Representante r = new Representante(datos[0], datos[1], datos[2], datos[3]);
                 representantes.add(r);
             }
