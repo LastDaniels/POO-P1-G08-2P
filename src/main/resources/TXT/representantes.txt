@@ -1,0 +1,3 @@
+cedula, nombre, telefono, email
+0986758470, Carlos Ordoñez, 0994557062, caordon@hotmail.com
+0982358470, Alberto Sarmiento, 0984557062, albet@hotmail.com
