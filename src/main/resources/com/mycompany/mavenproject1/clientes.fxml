@@ -24,17 +24,17 @@
             <Font size="10.0" />
          </font>
       </Label>
-      <Button fx:id="agregarClienteButton" alignment="CENTER" layoutX="151.0" layoutY="312.0" mnemonicParsing="false" text="Agregar Cliente">
+      <Button fx:id="agregarClienteButton" alignment="CENTER" layoutX="151.0" layoutY="312.0" mnemonicParsing="false" onAction="#nuevoCliente" text="Agregar Cliente">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="editarClienteButton" alignment="CENTER" layoutX="265.0" layoutY="312.0" mnemonicParsing="false" text="Editar Cliente">
+      <Button alignment="CENTER" layoutX="265.0" layoutY="312.0" mnemonicParsing="false" onAction="#editarCliente" text="Editar Cliente">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="regresarButton" layoutX="370.0" layoutY="310.0" mnemonicParsing="false" text="Regresar" />
+      <Button fx:id="regresarButton" layoutX="370.0" layoutY="310.0" mnemonicParsing="false" onAction="#cancelar" text="Regresar" />
    </children>
    <opaqueInsets>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

@@ -16,21 +16,21 @@ import java.util.ArrayList;
 
 
 public class Cliente extends Persona implements Comparable<Cliente>{
-    private String nombreRepresentante;
+    private String cedulaRepresentante;
     
-    public String getNombreRepresentante(){
-        return nombreRepresentante;
+    public String getCedulaRepresentante(){
+        return cedulaRepresentante;
     }
     
-    public void setNombreRepresentante(String nombreRepresentante){
-        this.nombreRepresentante = nombreRepresentante;
+    public void setCedulaRepresentante(String cedulaRepresentante){
+        this.cedulaRepresentante = cedulaRepresentante;
     }
     
     
     //Constructor Cliente
-    public Cliente(String cedula, String nombre, String telefono, String email, String nombreRepresentante){
+    public Cliente(String cedula, String nombre, String telefono, String email, String cedulaRepresentante){
         super(cedula, nombre, telefono, email);
-        this.nombreRepresentante = nombreRepresentante;
+        this.cedulaRepresentante = cedulaRepresentante;
     }
 
     @Override

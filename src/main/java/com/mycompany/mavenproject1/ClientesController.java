@@ -4,9 +4,11 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -19,7 +21,7 @@ import modelo.Cliente;
  *
  * @author Carlos 
  */
-public class ClientesController implements Initializable{
+public class ClientesController {
 
     @FXML
     private Button agregarClienteButton;
@@ -44,13 +46,13 @@ public class ClientesController implements Initializable{
      * Initializes the controller class.
      */
 
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize() {
 
         colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
         colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         colPhone.setCellValueFactory(new PropertyValueFactory<>("telefono"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colNombreRepr.setCellValueFactory(new PropertyValueFactory<>("nombreRepresentante"));
+        colNombreRepr.setCellValueFactory(new PropertyValueFactory<>("cedulaRepresentante"));
         
         tvClientes.getColumns().setAll(colCedula, colNombre, colPhone, colEmail, colNombreRepr);
         tvClientes.getItems().setAll(Cliente.cargarClientes("src/main/resources/TXT/clientes.txt"));
@@ -59,6 +61,36 @@ public class ClientesController implements Initializable{
 
     public void llenarTableView() {
         tvClientes.getItems().setAll(Cliente.cargarClientes("src/main/resources/TXT/clientes.txt"));
+    }
+    
+    @FXML
+    private void editarCliente() throws IOException {
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("editarCliente.fxml"));//no tiene el controlador especificado
+        NewClienteController ct = new NewClienteController();
+
+        fxmlLoader.setController(ct);//se asigna el controlador
+
+        App.setRoot("editarCliente");
+    }
+
+      
+    
+    @FXML
+    public void nuevoCliente() throws Exception{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("agregarCliente.fxml"));//no tiene el controlador especificado
+        NewClienteController ct = new NewClienteController();
+
+        fxmlLoader.setController(ct);//se asigna el controlador
+
+        App.setRoot("agregarCliente");
+
+
+    }
+    
+    @FXML
+    public void cancelar() throws Exception{
+        App.setRoot("MENU");
     }
 
 }

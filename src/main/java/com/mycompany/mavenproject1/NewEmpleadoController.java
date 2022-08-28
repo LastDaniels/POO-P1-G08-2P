@@ -57,7 +57,7 @@ public class NewEmpleadoController {
                 try {
                     FileWriter writer = new FileWriter(new File("src/main/resources/TXT/empleados.txt"));
                     BufferedWriter bw = new BufferedWriter(writer);
-                    bw.write("cedula, nombre, telefono, correo, email");
+                    bw.write("cedula, nombre, telefono, correo, estado");
                     bw.newLine();
                     for(int x=0; x<empleados.size();x++){
                         bw.write(empleados.get(x).getCedula()+", "+
