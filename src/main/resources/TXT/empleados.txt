@@ -1,0 +1,2 @@
+cedula, nombre, telefono, email, estado
+0916658490, Edison Zuñiga, 0994889353, edi@hotmail.com, Activo
