@@ -71,8 +71,17 @@ public class EmpleadosController  {
         fxmlLoader.setController(ct);//se asigna el controlador
 
         App.setRoot("editEmpleado");
+    }
 
-    
+    @FXML
+    private void eliminarEm() throws IOException {
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("elimEmp.fxml"));//no tiene el controlador especificado
+        NewEmpleadoController ct = new NewEmpleadoController();
+
+        fxmlLoader.setController(ct);//se asigna el controlador
+
+        App.setRoot("elimEmp");
         
     }
     @FXML
@@ -89,6 +98,7 @@ public class EmpleadosController  {
     
     @FXML
     public void cancelar() throws Exception{
-        App.setRoot("empleados");
+        App.setRoot("MENU");
     }
+    
 }

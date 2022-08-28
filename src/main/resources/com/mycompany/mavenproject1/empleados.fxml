@@ -34,11 +34,12 @@
             <Font size="10.0" />
          </font>
       </Button>
-      <Button fx:id="editarClienteButton1" alignment="CENTER" layoutX="368.0" layoutY="312.0" mnemonicParsing="false" text="Eliminar Empleado">
+      <Button alignment="CENTER" layoutX="368.0" layoutY="312.0" mnemonicParsing="false" onAction="#eliminarEm" text="Eliminar Empleado">
          <font>
             <Font size="10.0" />
          </font>
       </Button>
+      <Button layoutX="276.0" layoutY="349.0" mnemonicParsing="false" onAction="#cancelar" text="Menu" />
    </children>
    <opaqueInsets>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

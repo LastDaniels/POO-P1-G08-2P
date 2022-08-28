@@ -40,6 +40,6 @@
          </children>
       </GridPane>
       <Button layoutX="212.0" layoutY="342.0" mnemonicParsing="false" onAction="#editarEmpleado" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Guardar" />
-      <Button layoutX="339.0" layoutY="342.0" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Cancelar" />
+      <Button layoutX="339.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchToEmpleados" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Cancelar" />
    </children>
 </AnchorPane>
