@@ -98,7 +98,7 @@ public class EmpleadosController  {
     
     @FXML
     public void cancelar() throws Exception{
-        App.setRoot("MENU");
+        App.setRoot("clientes");
     }
     
 }
