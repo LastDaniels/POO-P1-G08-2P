@@ -22,6 +22,31 @@ public class Empleado extends Persona{
         super(cedula, nombre, telefono, email);
         this.estado = estado;
     }
+    
+    public String getCedula(){
+        return super.getCedula();   
+    }
+    
+    public String getNombre(){
+        return super.getNombre();
+    }
+    
+    public String getTelefono(){
+        return super.getTelefono();
+    }
+    
+    public String getEmail(){
+        return super.getEmail();
+    }
+    public String getEstado() {
+        return estado;
+    }
+    
+    @Override
+    public String toString() {
+        return  super.getCedula()+super.getNombre()+super.getTelefono()+super.getEmail()+ estado;
+    }
+    
     public static ArrayList<Empleado> cargarEmpleados(String ruta){
         ArrayList<Empleado> empleados = new ArrayList<>();
         
@@ -39,6 +64,9 @@ public class Empleado extends Persona{
         } catch (IOException   ex) {
             System.out.println("Error io:"+ex.getMessage());
         } 
+        System.out.println(empleados.toString());
+        
+        
         return empleados;
     }
 }

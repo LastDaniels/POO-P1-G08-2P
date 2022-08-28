@@ -5,5 +5,6 @@ module com.mycompany.mavenproject1 {
     requires java.base;
     
     opens com.mycompany.mavenproject1 to javafx.fxml;
+    opens modelo to javafx.base;
     exports com.mycompany.mavenproject1;
 }
