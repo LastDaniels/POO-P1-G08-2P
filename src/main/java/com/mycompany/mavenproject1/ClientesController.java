@@ -19,7 +19,46 @@ import modelo.Cliente;
  *
  * @author Carlos 
  */
-public class ClientesController {
+public class ClientesController implements Initializable{
 
-    
+    @FXML
+    private Button agregarClienteButton;
+    @FXML
+    private Button editarClienteButton;
+    @FXML
+    private TableView<Cliente> tvClientes;
+    @FXML
+    private TableColumn<Cliente, String> colCedula;
+    @FXML
+    private TableColumn<Cliente, String> colNombre;
+    @FXML
+    private TableColumn<Cliente, String> colPhone;
+    @FXML
+    private TableColumn<Cliente, String> colEmail;
+    @FXML
+    private TableColumn<Cliente, String> colNombreRepr;
+    @FXML
+    private Button regresarButton;
+
+    /**
+     * Initializes the controller class.
+     */
+
+    public void initialize(URL url, ResourceBundle rb) {
+
+        colCedula.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        colPhone.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        colNombreRepr.setCellValueFactory(new PropertyValueFactory<>("nombreRepresentante"));
+        
+        tvClientes.getColumns().setAll(colCedula, colNombre, colPhone, colEmail, colNombreRepr);
+        tvClientes.getItems().setAll(Cliente.cargarClientes("src/main/resources/TXT/clientes.txt"));
+
+    }
+
+    public void llenarTableView() {
+        tvClientes.getItems().setAll(Cliente.cargarClientes("src/main/resources/TXT/clientes.txt"));
+    }
+
 }
