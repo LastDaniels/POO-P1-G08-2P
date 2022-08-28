@@ -56,9 +56,7 @@ public class EmpleadosController  {
         
     }  
     
-    public void llenarTableView() {
-        tvEmpleados.getItems().setAll(Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt"));
-    }
+    
     
 
     

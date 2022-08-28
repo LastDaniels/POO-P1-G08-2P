@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="com.mycompany.mavenproject1.NewServicioController">
+   <children>
+      <Label layoutX="225.0" layoutY="32.0" text="Editar Servicio">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="132.0" layoutY="90.0" prefHeight="174.0" prefWidth="336.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Nombre antiguo del servicio" />
+            <Label text="Nuevo nombre del servicio" GridPane.rowIndex="1" />
+            <Label text="Cedula del empleado" GridPane.rowIndex="2" />
+            <Label text="Duracion " GridPane.rowIndex="3" />
+            <Label text="Precio" GridPane.rowIndex="4" />
+            <TextField fx:id="txNombreOld" GridPane.columnIndex="1" />
+            <TextField fx:id="txNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txCedula" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txDuracion" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txPrecio" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+      <Button layoutX="199.0" layoutY="315.0" mnemonicParsing="false" onAction="#editarServicio" text="Guardar" />
+      <Button layoutX="349.0" layoutY="315.0" mnemonicParsing="false" onAction="#switchToServicios" text="Cancelar" />
+   </children>
+</AnchorPane>

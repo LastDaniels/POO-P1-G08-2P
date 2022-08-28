@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -17,18 +16,28 @@ import java.util.Scanner;
  */
 public class Servicio {
     private String nombre;
+    private String nombreEmpleado;
     private Empleado empleado;
     private int duracion;
     private double precio;
     private String estado;
- 
+    //private String nEmpleado;
     
-    public Servicio(String nombre, Empleado empleado, int duracion, double precio, String estado) {
+    public Servicio(String nombre, String nombreEmpleado, Empleado empleado, int duracion, double precio, String estado) {
         this.nombre = nombre;
-        this.empleado = empleado;
+        //this.empleado = empleado;
         this.duracion = duracion;
         this.precio = precio;
         this.estado = estado;
+        this.nombreEmpleado = nombreEmpleado;
+    }
+
+    public String getNombreEmpleado() {
+        return nombreEmpleado;
+    }
+
+    public void setNombreEmpleado(String nEmpleado) {
+        this.nombreEmpleado = nombreEmpleado;
     }
 
     public String getNombre() {
@@ -73,7 +82,7 @@ public class Servicio {
 
     @Override
     public String toString() {
-        return "Servicio{" + "nombre=" + nombre + ", empleado=" + empleado + ", duracion=" + duracion + ", precio=" + precio + ", estado=" + estado + '}';
+        return "Servicio{" + "nombre=" + nombre + ", empleado=" +  ", duracion=" + duracion + ", precio=" + precio + ", estado=" + estado + '}';
     }
     
     public static ArrayList<Servicio> cargarServicios(String ruta){
@@ -86,7 +95,7 @@ public class Servicio {
             while((sCurrentLine = br.readLine())!=null){
                 String[] datos = sCurrentLine.split(",");
                 Empleado empleado = new Empleado(datos[1]);
-                Servicio e = new Servicio(datos[0],empleado,Integer.valueOf(datos[2]),Double.valueOf(datos[3]),datos[4]);
+                Servicio e = new Servicio(datos[0],datos[1],empleado, Integer.valueOf(datos[2]),Double.valueOf(datos[3]),datos[4]);
                 servicios.add(e);
             }
         } catch (FileNotFoundException ex) {

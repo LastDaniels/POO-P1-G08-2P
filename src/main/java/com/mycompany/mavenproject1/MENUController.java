@@ -42,7 +42,7 @@ public class MENUController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         serviciosButton.setOnMouseClicked(e->{
             try {
-                App.setRoot("SERVICIOS");
+                App.setRoot("servicios");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
