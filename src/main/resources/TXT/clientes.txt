@@ -1,3 +1,3 @@
 cedula, nombre, telefono, email, representante
-0946758490, Daniel Poquin, 0984889352, danpoquin@hotmail.com, Carlos Ordoñez
-0986658490, Pedro Picon, 0994889352, pedroto@hotmail.com, Alberto Sarmiento
+0946758490, Daniel Poquin, 0984889352, danpoquin@hotmail.com, 0986758470
+0986658490, Pedro Picon, 0994889352, pedroto@hotmail.com, 0982358470
