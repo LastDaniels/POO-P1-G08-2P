@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="209.0" layoutY="35.0" text="Editar Empleado">
+      <Label layoutX="209.0" layoutY="35.0" styleClass="mainFxmlClassTITULOS" stylesheets="@style.css" text="Editar Empleado">
          <font>
             <Font size="24.0" />
          </font>
@@ -28,17 +28,17 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" text="Telefono" GridPane.rowIndex="2" />
-            <Label text="Correo" GridPane.rowIndex="3" />
-            <Label text="Nombre" GridPane.rowIndex="1" />
-            <Label text="Cedula" />
+            <Label alignment="CENTER" contentDisplay="CENTER" styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Telefono" GridPane.rowIndex="2" />
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Correo" GridPane.rowIndex="3" />
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Nombre" GridPane.rowIndex="1" />
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Cedula" />
             <TextField fx:id="txNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="txTelf" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="txEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="lblCedula" contentDisplay="CENTER" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="lblCedula" contentDisplay="CENTER" GridPane.columnIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="212.0" layoutY="342.0" mnemonicParsing="false" text="Guardar" />
-      <Button layoutX="339.0" layoutY="342.0" mnemonicParsing="false" text="Cancelar" />
+      <Button layoutX="212.0" layoutY="342.0" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Guardar" />
+      <Button layoutX="339.0" layoutY="342.0" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Cancelar" />
    </children>
 </AnchorPane>
