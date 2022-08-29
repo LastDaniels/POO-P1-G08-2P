@@ -6,6 +6,7 @@ package com.mycompany.mavenproject1;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +19,6 @@ import modelo.Atencion;
 import modelo.Cita;
 import modelo.Cliente;
 import modelo.Empleado;
-import modelo.Servicio;
 
 /**
  * FXML Controller class
@@ -34,7 +34,7 @@ public class REGISTRARATENCIONController implements Initializable {
     @FXML
     private TextField tiempoTextField;
     @FXML
-    private ComboBox<Empleado> terapistaComboBox;
+    private ComboBox<String> terapistaComboBox;
     @FXML
     private Button guardarButton;
     @FXML
@@ -46,7 +46,12 @@ public class REGISTRARATENCIONController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        guaradarAtención();
+        //guaradarAtención();
+        ArrayList<Empleado> empleados = Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt");
+        for(Empleado e : empleados) {
+            terapistaComboBox.getItems().add(e.getNombre());
+        }
+    
         horaLabel.setText(App.citas.getFecha()+App.citas.getTime());
         clienteLabel.setText(String.valueOf(App.citas.getCliente()));
         
@@ -78,6 +83,7 @@ public class REGISTRARATENCIONController implements Initializable {
         });
     
     }
+
     public static void mostrarAlerta(Alert.AlertType tipo, String mensaje) {
         Alert alert = new Alert(tipo);
 
