@@ -49,6 +49,7 @@ public class REGISTRARATENCIONController implements Initializable {
         guaradarAtención();
         ArrayList<Empleado> empleados = Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt");
         for(Empleado e : empleados) {
+            if(e.getEstado().equals("Activo"))
             terapistaComboBox.getItems().add(e.getNombre());
         }
     

@@ -9,8 +9,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import modelo.Empleado;
 
@@ -128,23 +130,31 @@ public class NewEmpleadoController {
     
     @FXML
     private void eliminarEmpleado()throws Exception{
-        boolean flag = false;
         ArrayList<Empleado> empleados = Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt");
+        boolean flag = false;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Confirmación");
+        alert.setContentText("¿Estas seguro de confirmar la acción?");
+        Optional<ButtonType> action = alert.showAndWait();
+        
+        if(action.get() == ButtonType.OK) {        
+
         for(int i =0 ; i<empleados.size();i++){
             if(txCed.getText().equals(empleados.get(i).getCedula())){
                 empleados.get(i).setEstado("Inactivo");
                 i=empleados.size();
                 flag = true;}
             else if (i == empleados.size() - 1) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Resultado de la operación");
-                    alert.setContentText("Empleado no encontrado");
+                Alert alert2 = new Alert(Alert.AlertType.ERROR);
+                alert2.setTitle("Information Dialog");
+                    alert2.setHeaderText("Resultado de la operación");
+                    alert2.setContentText("Empleado no encontrado");
 
-                    alert.showAndWait();
+                    alert2.showAndWait();
                     App.setRoot("elimEmp");
                     
-             }}
+             }}}
         if(flag==true){
                 try {
                     FileWriter writer = new FileWriter(new File("src/main/resources/TXT/empleados.txt"));
@@ -161,12 +171,12 @@ public class NewEmpleadoController {
                     }
                     bw.close();
                     System.out.println(empleados.toString());
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Dialog");
-                    alert.setHeaderText("Resultado de la operación");
-                    alert.setContentText("Empleado en estado Inactivo");
+                    Alert alert2 = new Alert(Alert.AlertType.INFORMATION);
+                    alert2.setTitle("Information Dialog");
+                    alert2.setHeaderText("Resultado de la operación");
+                    alert2.setContentText("Empleado en estado Inactivo");
 
-                    alert.showAndWait();
+                    alert2.showAndWait();
                     App.setRoot("MENU");
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
