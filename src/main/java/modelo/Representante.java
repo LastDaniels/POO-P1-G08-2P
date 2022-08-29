@@ -8,13 +8,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author LENOVO
  */
-public class Representante extends Persona implements Comparable<Representante>{
+public class Representante extends Persona implements Comparable<Representante>, Serializable{
     
      //constructor Representante
     public Representante(String cedula, String nombre, String telefono, String email){

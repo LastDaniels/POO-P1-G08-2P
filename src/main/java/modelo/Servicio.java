@@ -8,13 +8,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author LENOVO
  */
-public class Servicio {
+public class Servicio implements Serializable{
     private String nombre;
     private String nombreEmpleado;
     private Empleado empleado;
@@ -30,6 +31,11 @@ public class Servicio {
         this.precio = precio;
         this.estado = estado;
         this.nombreEmpleado = nombreEmpleado;
+    
+    }
+
+    public Servicio(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getNombreEmpleado() {
@@ -82,8 +88,14 @@ public class Servicio {
 
     @Override
     public String toString() {
-        return "Servicio{" + "nombre=" + nombre + ", empleado=" +  ", duracion=" + duracion + ", precio=" + precio + ", estado=" + estado + '}';
+        return nombre;
     }
+    
+
+//    @Override
+//    public String toString() {
+//        return "Servicio{" + "nombre=" + nombre + ", empleado=" +  ", duracion=" + duracion + ", precio=" + precio + ", estado=" + estado + '}';
+//    }
     
     public static ArrayList<Servicio> cargarServicios(String ruta){
         ArrayList<Servicio> servicios = new ArrayList<>();

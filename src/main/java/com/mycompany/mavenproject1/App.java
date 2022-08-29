@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import modelo.Cita;
 import modelo.Cliente;
 import modelo.Empleado;
 import modelo.Jugador;
@@ -34,7 +35,7 @@ public class App extends Application {
     public static int correctas;
     public static int incorrectas;
     public static int tiempo;
-    
+    public static Cita citas;
 
     private static Scene scene;
 
@@ -84,34 +85,6 @@ public class App extends Application {
 
         
         launch();
-        //###############################################PRUEBA PARA SELECCIONAR SOLO CON EL NOMBRE DEL SERVIDOR
-//        System.out.println(Empleado.cargarEmpleados("src\\main\\resources\\TXT\\empleados.txt"));
-        //System.out.println(Cliente.cargarClientes("src\\main\\resources\\TXT\\clientes.txt"));
-        //System.out.println(Representante.cargarRepresentantes("src\\main\\resources\\TXT\\clientes.txt"));
-        System.out.println(Servicio.cargarServicios("src\\main\\resources\\TXT\\servicios.txt"));
-        ArrayList<String> servidores = new ArrayList<>();
-        for (Servicio s:Servicio.cargarServicios("src\\main\\resources\\TXT\\servicios.txt")){
-            //return "Persona{" + "cedula=" + cedula +'}';
-            
-//            ArrayList<String> servidor = new ArrayList<>();
-            String nombre = s.getNombre();
-            String colaborador = s.getEmpleado().getNombre();
-            String duracion = String.valueOf(s.getDuracion());
-            String precio = String.valueOf(s.getPrecio());
-            String estado = s.getEstado();
-            String servidor = "{" +nombre+ ", " +colaborador+ ", " +duracion+ ", " +precio+ ", " +estado+ "}";
-//            servidor.add(nombre);
-//            servidor.add(colaborador);
-//            servidor.add(String.valueOf(duracion));
-//            servidor.add(String.valueOf(precio));
-//            servidor.add(estado);
-            
-            servidores.add(servidor);
-        }
-        for (String s: servidores){
-            System.out.println(s);
-        }
-        //########################ESTA LISTA ES DE TIPO STRING
     }
     
 }

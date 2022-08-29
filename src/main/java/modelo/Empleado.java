@@ -8,13 +8,14 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author LENOVO
  */
-public class Empleado extends Persona{
+public class Empleado extends Persona implements Serializable{
     private String estado;
     
     
@@ -54,8 +55,15 @@ public class Empleado extends Persona{
 
     @Override
     public String toString() {
-        return super.toString() + ", Empleado{" + "estado=" + estado + '}'+"}";
+        return super.toString();
     }
+    
+    
+
+//    @Override
+//    public String toString() {
+//        return super.toString() + ", Empleado{" + "estado=" + estado + '}'+"}";
+//    }
     
 //    @Override
 //    public String toString() {

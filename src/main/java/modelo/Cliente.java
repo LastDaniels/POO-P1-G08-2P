@@ -12,10 +12,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Cliente extends Persona implements Comparable<Cliente>{
+public class Cliente extends Persona implements Comparable<Cliente>, Serializable{
     private String cedulaRepresentante;
     
     public String getCedulaRepresentante(){
@@ -33,6 +34,11 @@ public class Cliente extends Persona implements Comparable<Cliente>{
         this.cedulaRepresentante = cedulaRepresentante;
     }
 
+    public Cliente(String nombre) {
+        super(nombre);
+    }
+    
+
     @Override
     public int compareTo(Cliente cl) {
         return getNombre().compareTo(cl.getNombre());
@@ -40,9 +46,19 @@ public class Cliente extends Persona implements Comparable<Cliente>{
 
     @Override
     public String toString() {
-        return super.toString() +", Cliente{" + "cedulaRepresentante=" + cedulaRepresentante + '}'+"}";
+        return super.toString();
     }
+
     
+    
+    
+
+//    @Override
+//    public String toString() {
+//        return super.toString() +", Cliente{" + "cedulaRepresentante=" + cedulaRepresentante + '}'+"}";
+//    }
+
+  
     public static ArrayList<Cliente> cargarClientes(String ruta){
         ArrayList<Cliente> clientes = new ArrayList<>();
         

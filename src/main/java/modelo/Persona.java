@@ -4,11 +4,13 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author LENOVO
  */
-public class Persona {
+public class Persona implements Serializable{
     private String cedula;
     private String nombre;
     private String telefono;
@@ -60,10 +62,16 @@ public class Persona {
         this.nombre = nombre;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email;
+//    }
+
     @Override
     public String toString() {
-        return "Persona{" + "cedula=" + cedula + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email;
+        return nombre;
     }
+    
     
     
 }

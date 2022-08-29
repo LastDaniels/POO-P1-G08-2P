@@ -13,7 +13,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Actividad;
+import modelo.Atencion;
+import modelo.Cita;
 
 /**
  * FXML Controller class
@@ -31,25 +34,34 @@ public class ATENCIONESController implements Initializable {
     @FXML
     private Button buscarButton;
     @FXML
-    private TableColumn<Actividad, String> fechaColumn;
+    private TableColumn<Atencion, String> fechaColumn;
     @FXML
-    private TableColumn<Actividad, String> clienteColumn;
+    private TableColumn<Atencion, String> clienteColumn;
     @FXML
-    private TableColumn<Actividad, String> tiempoColumn;
+    private TableColumn<Atencion, String> tiempoColumn;
     @FXML
-    private TableColumn<Actividad, String> terapistaColumn;
+    private TableColumn<Atencion, String> terapistaColumn;
     @FXML
-    private TableView<Actividad> atencionesTableView;
+    private TableView<Atencion> atencionesTableView;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cargarAtenciones();
         buscarButton.setOnMouseClicked(e->{
            
         });
         // TODO
-    }    
+    }
+    public void cargarAtenciones(){
+        clienteColumn.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        terapistaColumn.setCellValueFactory(new PropertyValueFactory<>("empleado"));
+        tiempoColumn.setCellValueFactory(new PropertyValueFactory<>("duracionAtencion"));
+        fechaColumn.setCellValueFactory(new PropertyValueFactory<>("cita"));
+        
+        atencionesTableView.getItems().addAll(Atencion.cargarListaAtencion("src\\main\\resources\\TXT\\atenciones.txt"));
+    }
     
 }

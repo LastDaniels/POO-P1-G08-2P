@@ -4,6 +4,11 @@
  */
 package modelo;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +16,7 @@ import java.util.Scanner;
  *
  * @author LENOVO
  */
-public class Atencion {
+public class Atencion implements Serializable{
     private Cliente cliente;
     private Empleado empleado;
     private int duracionAtencion; //duracion real de la atencion
@@ -106,5 +111,27 @@ public class Atencion {
     public String toString(){
         return "";
     }   
-    
+    public static ArrayList<Atencion> cargarListaAtencion(String ruta){
+        
+        ArrayList<Atencion> atencion = new ArrayList<>();
+        
+        try(BufferedReader br = new BufferedReader(new FileReader(ruta))){
+            String sCurrentLine;
+            br.readLine();
+            while((sCurrentLine = br.readLine())!=null){
+                String[] datos = sCurrentLine.split(",");
+                String[] citas = datos[3].split(" ");
+                Cita c = new Cita(citas[0],citas[1]);
+                Cliente cli = new Cliente(datos[0]);
+                Empleado em = new Empleado(datos[1]);
+                Atencion a = new Atencion(cli,em,Integer.valueOf(datos[2]),c);
+                atencion.add(a);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("Archivo no existe");
+        } catch (IOException   ex) {
+            System.out.println("Error io:"+ex.getMessage());
+        } 
+        return atencion;
+    }
 }

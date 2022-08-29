@@ -14,7 +14,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Cita;
+import modelo.Servicio;
 
 /**
  * FXML Controller class
@@ -53,6 +55,7 @@ public class CITASController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cargarCitaRegistro();
         buscarButton.setOnMouseClicked(e->{
            
         });
@@ -64,13 +67,7 @@ public class CITASController implements Initializable {
                 ex.printStackTrace();
             }
         });
-        registrarButton.setOnMouseClicked(e->{
-            try {
-                App.setRoot("REGISTRARATENCION");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-        });
+        
         consultarButton.setOnMouseClicked(e->{
             try {
                 App.setRoot("CONSULTARACTIVIDAD");
@@ -81,5 +78,26 @@ public class CITASController implements Initializable {
         // TODO
     }
     
+    public void cargarCitaRegistro(){
+    nombreColumn.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+    terapsitaColumn.setCellValueFactory(new PropertyValueFactory<>("empleado"));
+    serviciosColumn.setCellValueFactory(new PropertyValueFactory<>("servicio"));
+    fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+    horaColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+    citasTableView.getItems().setAll(Cita.recuperarDataCita());
+    }
     
+    public void crearAtencion(){
+        registrarButton.setOnMouseClicked(e->{
+          App.citas = (Cita) citasTableView.getSelectionModel().getSelectedItem();
+            try {
+                App.setRoot("REGISTRARATENCION");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+    
+    
+    
+    }
 }
