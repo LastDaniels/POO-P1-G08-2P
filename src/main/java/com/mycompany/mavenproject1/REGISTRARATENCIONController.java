@@ -46,7 +46,7 @@ public class REGISTRARATENCIONController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //guaradarAtención();
+        guaradarAtención();
         ArrayList<Empleado> empleados = Empleado.cargarEmpleados("src/main/resources/TXT/empleados.txt");
         for(Empleado e : empleados) {
             terapistaComboBox.getItems().add(e.getNombre());
