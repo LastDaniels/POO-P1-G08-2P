@@ -13,7 +13,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Actividad;
+import modelo.Jugador;
 
 /**
  * FXML Controller class
@@ -25,17 +27,17 @@ public class CONSULTARACTIVIDADController implements Initializable {
     @FXML
     private Label clienteLabel;
     @FXML
-    private TableColumn<Actividad, String> actividadColumn;
+    private TableColumn<Jugador, String> actividadColumn;
     @FXML
-    private TableColumn<Actividad, String> fechaColumn;
+    private TableColumn<Jugador, String> fechaColumn;
     @FXML
-    private TableColumn<Actividad, String> aciertosColumn;
+    private TableColumn<Jugador, String> aciertosColumn;
     @FXML
-    private TableColumn<Actividad, String> fallosColumn;
+    private TableColumn<Jugador, String> fallosColumn;
     @FXML
-    private TableColumn<Actividad, String> tiempoColumn;
+    private TableColumn<Jugador, String> tiempoColumn;
     @FXML
-    private TableView<Actividad> actividadesTableView;
+    private TableView<Jugador> actividadesTableView;
     @FXML
     private Button citaButton;
 
@@ -51,6 +53,13 @@ public class CONSULTARACTIVIDADController implements Initializable {
                 ex.printStackTrace();
             }
         });
+        actividadColumn.setCellValueFactory(new PropertyValueFactory<>("cedula"));
+        fechaColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        fallosColumn.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        aciertosColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
+        tiempoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        
+        actividadesTableView.getItems().setAll(App.jugadores);
         // TODO
     }    
     

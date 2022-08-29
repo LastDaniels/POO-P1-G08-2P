@@ -16,12 +16,33 @@ public class Jugador {
     private int acierto;
     private int NOacierto;
     private int tiempo;
+    private String actividad;
+    private String fecha;
 
-    public Jugador(String Jugador, int acierto, int NOacierto, int tiempo) {
+    public Jugador(String Jugador, int acierto, int NOacierto, int tiempo, String fecha) {
         this.Jugador = Jugador;
         this.acierto = acierto;
         this.NOacierto = NOacierto;
         this.tiempo = tiempo;
+        this.fecha = fecha;
+        this.actividad = "Bingo";
+        
+    }
+
+    public String getActividad() {
+        return actividad;
+    }
+
+    public void setActividad(String actividad) {
+        this.actividad = actividad;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public String getJugador() {
