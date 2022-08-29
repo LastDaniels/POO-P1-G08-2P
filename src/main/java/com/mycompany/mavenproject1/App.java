@@ -43,7 +43,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("MENU"), 1110, 640);
         stage.setScene(scene);
-        stage.setTitle("JUGUEMOS BINGO");
+        stage.setTitle("BIENVENIDO A TERAPIA");
         //###SE ESTABLECIO ICONO DE VENTANA
         FileInputStream input = null;
         try {
@@ -68,21 +68,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        
-        final String NOMBRE_ARCHIVO = "src\\main\\resources\\com\\mycompany\\mavenproject1\\entrada.mp3";
-        File archivo = null;
-        try {
-            archivo = new File(NOMBRE_ARCHIVO);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        Media audio = new Media(archivo.toURI().toString());
-        
-        MediaPlayer reproductor = new MediaPlayer(audio);
-        
-        reproductor.play();
-
         
         launch();
     }

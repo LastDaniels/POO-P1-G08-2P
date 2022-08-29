@@ -49,6 +49,8 @@ public class CITASController implements Initializable {
     private Button registrarButton;
     @FXML
     private Button consultarButton;
+    @FXML
+    private Button menuButton;
 
     /**
      * Initializes the controller class.
@@ -56,6 +58,7 @@ public class CITASController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarCitaRegistro();
+        crearAtencion();
         buscarButton.setOnMouseClicked(e->{
            
         });
@@ -71,6 +74,13 @@ public class CITASController implements Initializable {
         consultarButton.setOnMouseClicked(e->{
             try {
                 App.setRoot("CONSULTARACTIVIDAD");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
+        menuButton.setOnMouseClicked(e->{
+            try {
+                App.setRoot("MENU");
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

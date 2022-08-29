@@ -4,6 +4,7 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -43,6 +44,8 @@ public class ATENCIONESController implements Initializable {
     private TableColumn<Atencion, String> terapistaColumn;
     @FXML
     private TableView<Atencion> atencionesTableView;
+     @FXML
+    private Button menuButton;
 
     /**
      * Initializes the controller class.
@@ -51,6 +54,14 @@ public class ATENCIONESController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cargarAtenciones();
         buscarButton.setOnMouseClicked(e->{
+           
+        });
+        menuButton.setOnMouseClicked(e->{
+            try {
+                App.setRoot("MENU");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
            
         });
         // TODO

@@ -46,12 +46,11 @@ public class REGISTRARATENCIONController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        guaradarAtención();
         horaLabel.setText(App.citas.getFecha()+App.citas.getTime());
         clienteLabel.setText(String.valueOf(App.citas.getCliente()));
-        for (Servicio s: Servicio.cargarServicios("src\\main\\resources\\TXT\\servicios.txt")){
-            terapistaComboBox.getItems().add(s.getEmpleado());
         
-        }
+        
         
     }    
     public void guaradarAtención(){
@@ -63,10 +62,8 @@ public class REGISTRARATENCIONController implements Initializable {
                 Cita c = new Cita(App.citas.getFecha(),App.citas.getTime());
                 Cliente cli = new Cliente(String.valueOf(App.citas.getCliente()));
                 Empleado em = new Empleado(String.valueOf(App.citas.getEmpleado()));
-                
-                
                 Atencion a = new Atencion(cli,em,Integer.valueOf(tiempoReal),c);
-            
+                Atencion.cargarListaAtencion("src\\main\\resources\\TXT\\atenciones.txt").add(a);
             }
            
         });
@@ -88,6 +85,6 @@ public class REGISTRARATENCIONController implements Initializable {
         alert.setHeaderText("Notificacion");
         alert.setContentText(mensaje);
         alert.showAndWait();
-    }
+    }   
 }
 

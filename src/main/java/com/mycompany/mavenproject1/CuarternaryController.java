@@ -152,8 +152,11 @@ public class CuarternaryController implements Initializable {
         
         
         salir.setOnMouseClicked(e -> {
-            Stage stage = (Stage) salir.getScene().getWindow();
-            stage.close();
+            try {
+                App.setRoot("MENU");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         });
         
         HBox cambio = new HBox(partida,reinicio,salir);

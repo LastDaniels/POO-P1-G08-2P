@@ -1,5 +1,6 @@
 package com.mycompany.mavenproject1;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,6 +18,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class PrimaryController implements Initializable{
 
@@ -26,6 +29,7 @@ public class PrimaryController implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        portadaMusica();
         try {
             cargarPortada();
         } catch (FileNotFoundException ex) {
@@ -76,6 +80,21 @@ public class PrimaryController implements Initializable{
             }
             
         });
+    }
+    public static void portadaMusica(){
+        final String NOMBRE_ARCHIVO = "src\\main\\resources\\com\\mycompany\\mavenproject1\\entrada.mp3";
+        File archivo = null;
+        try {
+            archivo = new File(NOMBRE_ARCHIVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        Media audio = new Media(archivo.toURI().toString());
+        
+        MediaPlayer reproductor = new MediaPlayer(audio);
+        
+        reproductor.play();
     }
 
 }

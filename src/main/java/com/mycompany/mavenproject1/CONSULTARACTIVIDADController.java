@@ -4,10 +4,12 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -34,12 +36,21 @@ public class CONSULTARACTIVIDADController implements Initializable {
     private TableColumn<Actividad, String> tiempoColumn;
     @FXML
     private TableView<Actividad> actividadesTableView;
+    @FXML
+    private Button citaButton;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        citaButton.setOnMouseClicked(e->{
+            try {
+                App.setRoot("CITAS");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        });
         // TODO
     }    
     
