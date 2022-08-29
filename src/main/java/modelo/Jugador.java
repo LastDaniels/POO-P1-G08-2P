@@ -11,22 +11,28 @@ import java.util.Objects;
  * @author LENOVO
  */
 public class Jugador {
-    
-    private String Jugador;
+    private String nombreJugador;
+    private String actividad;
+    private String fecha;
     private int acierto;
     private int NOacierto;
     private int tiempo;
-    private String actividad;
-    private String fecha;
 
-    public Jugador(String Jugador, int acierto, int NOacierto, int tiempo, String fecha) {
-        this.Jugador = Jugador;
+    public Jugador(String nombreJugador, String actividad, String fecha, int acierto, int NOacierto, int tiempo) {
+        this.nombreJugador = nombreJugador;
+        this.actividad = actividad;
+        this.fecha = fecha;
         this.acierto = acierto;
         this.NOacierto = NOacierto;
         this.tiempo = tiempo;
-        this.fecha = fecha;
-        this.actividad = "Bingo";
-        
+    }
+
+    public String getNombreJugador() {
+        return nombreJugador;
+    }
+
+    public void setNombreJugador(String nombreJugador) {
+        this.nombreJugador = nombreJugador;
     }
 
     public String getActividad() {
@@ -43,14 +49,6 @@ public class Jugador {
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
-    }
-
-    public String getJugador() {
-        return Jugador;
-    }
-
-    public void setJugador(String Jugador) {
-        this.Jugador = Jugador;
     }
 
     public int getAcierto() {
@@ -79,7 +77,6 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + "Jugador=" + Jugador + ", acierto=" + acierto + ", NOacierto=" + NOacierto + ", tiempo=" + tiempo + '}';
+        return "Jugador{" + "actividad=" + actividad + ", fecha=" + fecha + ", acierto=" + acierto + ", NOacierto=" + NOacierto + ", tiempo=" + tiempo + '}';
     }
-
 }

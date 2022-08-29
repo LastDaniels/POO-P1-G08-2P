@@ -1,6 +1,6 @@
 package com.mycompany.mavenproject1;
 
-import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,15 +10,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import modelo.Cita;
-import modelo.Cliente;
-import modelo.Empleado;
 import modelo.Jugador;
-import modelo.Representante;
-import modelo.Servicio;
 
 
 

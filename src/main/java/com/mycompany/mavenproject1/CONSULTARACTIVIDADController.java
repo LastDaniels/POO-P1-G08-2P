@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import modelo.Actividad;
 import modelo.Jugador;
 
 /**
@@ -46,6 +45,8 @@ public class CONSULTARACTIVIDADController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cargarActividad();
+        
         citaButton.setOnMouseClicked(e->{
             try {
                 App.setRoot("CITAS");
@@ -53,14 +54,19 @@ public class CONSULTARACTIVIDADController implements Initializable {
                 ex.printStackTrace();
             }
         });
-        actividadColumn.setCellValueFactory(new PropertyValueFactory<>("cedula"));
-        fechaColumn.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        fallosColumn.setCellValueFactory(new PropertyValueFactory<>("telefono"));
-        aciertosColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
-        tiempoColumn.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        
+        // TODO
+    }
+    public void cargarActividad(){
+        clienteLabel.setText(App.nombreJugador);
+        actividadColumn.setCellValueFactory(new PropertyValueFactory<>("actividad"));
+        fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        aciertosColumn.setCellValueFactory(new PropertyValueFactory<>("acierto"));
+        fallosColumn.setCellValueFactory(new PropertyValueFactory<>("NOacierto"));
+        tiempoColumn.setCellValueFactory(new PropertyValueFactory<>("tiempo"));
         
         actividadesTableView.getItems().setAll(App.jugadores);
-        // TODO
-    }    
+    
+    }
     
 }

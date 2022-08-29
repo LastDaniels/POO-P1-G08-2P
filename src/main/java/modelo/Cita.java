@@ -37,6 +37,10 @@ public class Cita implements Serializable{
         this.fecha = fecha;
         this.time = time;
     }
+
+    public Cita(String fecha) {
+        this.fecha = fecha;
+    }
     
 
     @Override

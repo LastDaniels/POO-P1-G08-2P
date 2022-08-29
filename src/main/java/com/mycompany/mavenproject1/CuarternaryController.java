@@ -22,7 +22,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.stage.Stage;
 import modelo.Jugador;
 
 /**
@@ -57,8 +56,9 @@ public class CuarternaryController implements Initializable {
 //        Jugador candidato = new Jugador(App.nombreJugador.toUpperCase(),App.correctas,App.incorrectas);
 //        App.jugadores.add(candidato);
 
-        //##
-        listaJugador(App.nombreJugador.toUpperCase(),App.correctas,App.incorrectas,App.tiempo);
+        //##nombre,actividad,fecha,correctas,incorrectas,tiempo
+        
+        listaJugador(App.nombreJugador.toUpperCase(),"BINGO","2022-28-8",App.correctas,App.incorrectas,App.tiempo);
 
         FileInputStream  copa = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\COPA.png");
         Image trofeo = new Image(copa,400,400, false, false);
@@ -66,13 +66,13 @@ public class CuarternaryController implements Initializable {
         
         VBox miniroot = new VBox();
         for (Jugador j: App.jugadores){
-            if((App.nombreJugador).equals(j.getJugador())){
+            if((App.nombreJugador).equals(j.getNombreJugador())){
                 
                 FileInputStream  medalla = new FileInputStream("src\\main\\resources\\com\\mycompany\\mavenproject1\\MEDALLA.png");
                 Image premio = new Image(medalla,100,100, false, false);
                 ImageView imagenMedalla = new ImageView(premio);
                 
-                Label nombre = new Label("JUGADOR "+" "+j.getJugador());
+                Label nombre = new Label("JUGADOR "+" "+j.getNombreJugador());
                 nombre.setStyle("-fx-font-size: 14px; -fx-font-family: Arial Narrow; -fx-font-weight: bold;");
 
                 Label correctas = new Label("NÚMERO DE ACIERTOS: "+String.valueOf(j.getAcierto()));
@@ -186,8 +186,8 @@ public class CuarternaryController implements Initializable {
         reproductor.play();
 
     }
-    public void listaJugador(String nombre, int correctas, int incorrectas, int tiempo){
-        Jugador candidato = new Jugador(nombre,correctas,incorrectas,tiempo);
+    public void listaJugador(String nombre,String actividad,String fecha, int correctas, int incorrectas, int tiempo){
+        Jugador candidato = new Jugador(nombre,actividad,fecha,correctas,incorrectas,tiempo);
         App.jugadores.add(candidato);
     }
 }

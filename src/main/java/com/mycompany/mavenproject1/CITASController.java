@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -16,7 +17,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import modelo.Cita;
-import modelo.Servicio;
+import modelo.Cliente;
 
 /**
  * FXML Controller class
@@ -57,11 +58,10 @@ public class CITASController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //mostrarAlerta(Alert.AlertType.INFORMATION, "Seleccione un registro");
         cargarCitaRegistro();
         crearAtencion();
-        buscarButton.setOnMouseClicked(e->{
-           
-        });
+        bucarCita();
         
         crearButton.setOnMouseClicked(e->{
             try {
@@ -85,6 +85,7 @@ public class CITASController implements Initializable {
                 ex.printStackTrace();
             }
         });
+        
         // TODO
     }
     
@@ -98,16 +99,53 @@ public class CITASController implements Initializable {
     }
     
     public void crearAtencion(){
+        
         registrarButton.setOnMouseClicked(e->{
-          App.citas = (Cita) citasTableView.getSelectionModel().getSelectedItem();
-            try {
-                App.setRoot("REGISTRARATENCION");
-            } catch (IOException ex) {
-                ex.printStackTrace();
+                App.citas = (Cita) citasTableView.getSelectionModel().getSelectedItem();
+                try {
+                    App.setRoot("REGISTRARATENCION");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            
+        });
+    }
+    public void bucarCita(){
+        buscarButton.setOnMouseClicked(e->{
+            String nombre = nombreTextField.getText();
+            String fecha = String.valueOf(fechaDatePicker.getValue());
+            if(nombre.isEmpty() || fecha.isEmpty()){
+                mostrarAlerta(Alert.AlertType.ERROR, "Ingrese datos");
+            }else{
+                cargarCitaRegistroBusqueda(nombre, fecha);
+                
             }
         });
+    }
     
-    
-    
+    public void cargarCitaRegistroBusqueda(String nombre, String fecha){
+        
+        nombreColumn.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+        terapsitaColumn.setCellValueFactory(new PropertyValueFactory<>("empleado"));
+        serviciosColumn.setCellValueFactory(new PropertyValueFactory<>("servicio"));
+        fechaColumn.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        horaColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
+        for (Cita c:Cita.recuperarDataCita()){
+//            Cliente n = new Cliente(nombre);
+//            Cita f = new Cita(fecha);
+            if(nombre.equals(c.getCliente()) || fecha.equals(c.getFecha())){
+                citasTableView.getItems().setAll(c);
+            }else{
+                mostrarAlerta(Alert.AlertType.INFORMATION, "NO SE HA ENCONTRADO REGISTRO DE CITA");
+            }
+        } 
+    }
+    public static void mostrarAlerta(Alert.AlertType tipo, String mensaje) {
+        Alert alert = new Alert(tipo);
+
+        alert.setTitle("Resultado de operacion");
+        alert.setHeaderText("Notificacion");
+        alert.setContentText(mensaje);
+        alert.showAndWait();
     }
 }
