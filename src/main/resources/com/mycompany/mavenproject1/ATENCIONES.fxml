@@ -50,6 +50,11 @@
                   <Insets left="15.0" />
                </HBox.margin>
             </Button>
+            <Button fx:id="menuButton" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Menu">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Button>
          </children>
       </HBox>
       <TableView fx:id="atencionesTableView" prefHeight="200.0" prefWidth="200.0">

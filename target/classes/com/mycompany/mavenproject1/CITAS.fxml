@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1110.0" spacing="10.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.CITASController">
+   <children>
+      <HBox alignment="TOP_CENTER">
+         <children>
+            <Label styleClass="mainFxmlClassTITULOS" stylesheets="@style.css" text="Citas" />
+         </children>
+      </HBox>
+      <HBox prefHeight="220.0" prefWidth="1101.0">
+         <children>
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Nombre:">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="nombreTextField" prefHeight="26.0" prefWidth="200.0" />
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Fecha:">
+               <HBox.margin>
+                  <Insets left="15.0" right="15.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="fechaDatePicker" />
+            <Button fx:id="buscarButton" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Buscar">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <TableView fx:id="citasTableView" prefHeight="300.0" prefWidth="1101.0">
+        <columns>
+          <TableColumn fx:id="nombreColumn" prefWidth="200.0" text="Nombre" />
+          <TableColumn fx:id="terapsitaColumn" prefWidth="200.0" text="Terapista" />
+            <TableColumn fx:id="serviciosColumn" prefWidth="200.0" text="Servicios" />
+            <TableColumn fx:id="fechaColumn" prefWidth="200.0" text="Fecha" />
+            <TableColumn fx:id="horaColumn" prefWidth="200.0" text="Hora" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="crearButton" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Crear Cita">
+               <HBox.margin>
+                  <Insets right="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="registrarButton" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Registrar Atención" />
+            <Button fx:id="consultarButton" mnemonicParsing="false" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Consultar Actividades">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

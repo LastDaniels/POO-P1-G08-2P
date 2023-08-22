@@ -30,7 +30,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Fecha y Hoara:" GridPane.halignment="RIGHT">
+            <Label styleClass="mainFxmlClassLABEL" stylesheets="@style.css" text="Fecha y Hora:" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="5.0" />
                </GridPane.margin>

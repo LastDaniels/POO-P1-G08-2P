@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="418.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.ServiciosController">
+   <children>
+      <TableView fx:id="serviciosTableView" layoutY="116.0" prefHeight="200.0" prefWidth="725.0">
+         <columns>
+            <TableColumn fx:id="nombreColumn" prefWidth="229.0" text="Nombre" />
+            <TableColumn fx:id="empleadoColumn" prefWidth="202.0" text="Empleado" />
+            <TableColumn fx:id="duracionColumn" prefWidth="101.0" text="Duración" />
+            <TableColumn fx:id="precioColumn" prefWidth="93.0" text="Precio" />
+            <TableColumn fx:id="estadoColumn" prefWidth="99.0" text="Estado" />
+         </columns>
+      </TableView>
+      <Label layoutX="307.0" layoutY="45.0" styleClass="mainFxmlClassTITULOS" stylesheets="@style.css" text="Servicios" />
+      <Button fx:id="editarButton" layoutX="314.0" layoutY="340.0" mnemonicParsing="false" onAction="#editarServicio" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Editar Servicio" />
+      <Button fx:id="agregarButton" layoutX="156.0" layoutY="340.0" mnemonicParsing="false" onAction="#nuevoServicio" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Agregar Servicio" />
+      <Button fx:id="eliminarButton" layoutX="454.0" layoutY="340.0" mnemonicParsing="false" onAction="#eliminarServicio" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Eliminar Servicio" />
+      <Button fx:id="eliminarButton1" layoutX="338.0" layoutY="379.0" mnemonicParsing="false" onAction="#cancelar" styleClass="mainFxmlClassBUTTON" stylesheets="@style.css" text="Menu" />
+   </children>
+</AnchorPane>

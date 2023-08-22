@@ -4,6 +4,13 @@
  */
 package modelo;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +18,7 @@ import java.util.Scanner;
  *
  * @author LENOVO
  */
-public class Cita {
+public class Cita implements Serializable{
     private Cliente cliente;
     private String fecha; //formato dd/mm/aa
     private String time; //formato hh:mm 
@@ -24,6 +31,21 @@ public class Cita {
         this.time = time;
         this.empleado = empleado;
         this.servicio = servicio;
+    }
+
+    public Cita(String fecha, String time) {
+        this.fecha = fecha;
+        this.time = time;
+    }
+
+    public Cita(String fecha) {
+        this.fecha = fecha;
+    }
+    
+
+    @Override
+    public String toString() {
+        return fecha +" " + time;
     }
    
     
@@ -135,10 +157,58 @@ public class Cita {
         return servicio;
     }
     
-    public static ArrayList<Cita> ListaCita(){
-        ArrayList<Cita> listaCitas = new ArrayList<Cita>();
-        
-        return null;
+    //CREAR EL ARCHIVO dataRegistros
+    public static void crearDataCita(){
+        //AL PRINCIPIO SE GUARDA UN OBJETO DE TIPO ARRAYLIST VACIO PERO NO REGISTRA NADA NINGUNCARACTER 
+        //AL PRINCIPIO ME SALIO UNA EXCEPCION QUE NO ENCONTRABA EL FICHERO
+        ArrayList<Cita> lista = new ArrayList<>();
+        try(ObjectOutputStream escribir = new ObjectOutputStream (new FileOutputStream("src\\main\\resources\\TXT\\dataCita.txt"))){
+            escribir.writeObject(lista);
+            escribir.flush();
+        }
+        catch(FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
+    //RECUPERANDO dataCita
+    public static ArrayList<Cita> recuperarDataCita(){
+        ArrayList<Cita> listaCitas = new ArrayList<>();
+        try(ObjectInputStream leer = new ObjectInputStream(new FileInputStream("src\\main\\resources\\TXT\\dataCita.txt"))){
+            listaCitas = (ArrayList<Cita>)leer.readObject();
+        }
+        catch(FileNotFoundException e){
+            System.out.println(e.getMessage());
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage());
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        return listaCitas;
+        }
+    public static void actualizarCita(Cita c){
+            ArrayList<Cita> citaActualizada = recuperarDataCita();
+            citaActualizada.add(c);
+            try(ObjectOutputStream escribir = new ObjectOutputStream(new FileOutputStream("src\\main\\resources\\TXT\\dataCita.txt"))){
+                escribir.writeObject(citaActualizada);
+                escribir.flush();
+            }
+            catch(FileNotFoundException e){
+                System.err.println(e.getMessage());
+            }
+            catch(IOException e){
+                System.err.println(e.getMessage());
+            }
+            catch(Exception e){
+                System.out.println(e.getMessage());
+            }
+        }    
     
 }
