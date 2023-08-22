@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 
 public class Cliente extends Persona implements Comparable<Cliente>{
+    private String Lastname;
     private String cedulaRepresentante;
     
     public String getCedulaRepresentante(){

@@ -40,6 +40,6 @@
          </children>
       </GridPane>
       <Button layoutX="221.0" layoutY="341.0" mnemonicParsing="false" onAction="#guardarServicio" text="Guardar" />
-      <Button layoutX="328.0" layoutY="341.0" mnemonicParsing="false" text="Cancelar" />
+      <Button layoutX="328.0" layoutY="341.0" mnemonicParsing="false" onAction="#switchToServicios" text="Cancelar" />
    </children>
 </AnchorPane>
